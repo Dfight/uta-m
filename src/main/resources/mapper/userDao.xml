@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macross.dao.userDao">
+    <select id="getcardname" resultType="java.lang.String">
+        select Card_Name from card where Card_ID = #{id}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+1111
+</body>
+<script>
+
+    function autoload(x){
+        $.ajax({
+            url:"http://localhost:8080/episode/autoload",
+            data:{
+                id:x,
+                name:"a"
+            },
+            success:function (data) {
+                switch(x){
+                    case 1 : autoload(2);break;
+                    case 2 : autoload(3);break;
+                    case 3 : autoload(4);break;
+                    case 4 : break;
+                }
+            }
+        })
+    }
+    test(1);
+</script>
+</html>
