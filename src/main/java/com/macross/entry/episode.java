@@ -8,11 +8,12 @@ public class episode {
     private int fighter;
     private int clothing;
     private int opus;
+    private String text;
 
     public episode() {
     }
 
-    public episode(int id, String name, String url, String img, int fighter, int clothing, int opus) {
+    public episode(int id, String name, String url, String img, int fighter, int clothing, int opus, String text) {
         this.id = id;
         this.name = name;
         this.url = url;
@@ -20,6 +21,7 @@ public class episode {
         this.fighter = fighter;
         this.clothing = clothing;
         this.opus = opus;
+        this.text = text;
     }
 
     @Override
@@ -32,7 +34,16 @@ public class episode {
                 ", fighter=" + fighter +
                 ", clothing=" + clothing +
                 ", opus=" + opus +
+                ", text='" + text + '\'' +
                 '}';
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getId() {

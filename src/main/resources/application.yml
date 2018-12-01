@@ -9,5 +9,5 @@ spring:
 
 
 mybatis:
-  typeAliasesPackage: com.example.demo.entity
+  typeAliasesPackage: com.macross.entry
   mapperLocations: classpath:mapper/*.xml

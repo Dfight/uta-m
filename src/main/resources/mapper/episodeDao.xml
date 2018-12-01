@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macross.dao.episodeDao">
+    <insert id="addEpisode" parameterType="episode">
+      insert into episode(name,url,img,opus,text) VALUES (#{name},#{url},#{img},#{opus},#{text})
+    </insert>
+    <select id="existEpisode" resultType="episode">
+        select * from episode where url = #{url}
+    </select>
+</mapper>
