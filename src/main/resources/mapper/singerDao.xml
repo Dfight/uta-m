@@ -9,4 +9,15 @@
     <select id="getSinger_name" resultType="singer">
         SELECT * from singer WHERE name = #{name}
     </select>
+    <insert id="addSinger" parameterType="singer">
+        INSERT INTO  singer(name,img1) VALUES (#{name},#{img1})
+    </insert>
+    <update id="addSingerDate" parameterType="singer">
+        UPDATE singer
+        SET url = #{url}, img2 = #{img2}, max_level = #{max_level}, opus = #{opus}
+        WHERE name = #{name}
+    </update>
+    <insert id="addSingerDetailed" parameterType="singer_detailed">
+        insert into singer_detailed values (#{id},#{state},#{total},#{soul},#{voice},#{charm},#{life},#{support},#{fold_wave});
+    </insert>
 </mapper>

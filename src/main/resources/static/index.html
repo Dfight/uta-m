@@ -23,6 +23,9 @@
     <div class="col-md-4">
         <button class="btn btn-lg btn-primary" onclick="autoloadsinger()">autoLoad singer</button>
     </div>
+    <div class="col-md-4">
+        <button class="btn btn-lg btn-primary" onclick="autoloadclothing()">autoLoad clothing</button>
+    </div>
 </div>
 </body>
 <script>
@@ -44,7 +47,7 @@
     function autoloadepisode(){
         for(i=0;i<allOpus.length;i++) {
             loadEpisode(allOpus[i].id,allOpus[i].name);
-            var value = (100/allOpus.length)*(i+1);
+//            var value = (100/allOpus.length)*(i+1);
 //            $("#episodeProgress").attr("aria-valuenow",value);
 //            $("#episodeProgress").css("width",value+"%");
 //            $("#episodeProgressText").text(value+"%");
@@ -71,6 +74,14 @@
             async:false,
             success: function (data) {
 
+            }
+        })
+    }
+    function autoloadclothing(){
+        $.ajax({
+            url: autoloadClothing,
+            async:false,
+            success: function (data) {
             }
         })
     }

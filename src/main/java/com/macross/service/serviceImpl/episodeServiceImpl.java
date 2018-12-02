@@ -24,4 +24,9 @@ public class episodeServiceImpl implements episodeService {
             return true;
         }
     }
+
+    @Override
+    public episode getEpisode_url(String url) {
+        return episodeDao.existEpisode(url);
+    }
 }

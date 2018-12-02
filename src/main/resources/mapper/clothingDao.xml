@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macross.dao.clothingDao">
+    <select id="getClothing_url" resultType="clothing">
+        select * from clothing where url = #{url}
+    </select>
+    <insert id="addClothing" parameterType="clothing">
+        insert INTO clothing(name,url,img,effect,singer,episode)
+        VALUES (#{name},#{url},#{img},#{effect},#{singer},#{episode})
+    </insert>
+
+
+</mapper>

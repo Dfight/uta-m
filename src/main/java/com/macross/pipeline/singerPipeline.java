@@ -3,6 +3,7 @@ package com.macross.pipeline;
 import com.macross.entry.singer;
 import com.macross.entry.singer_detailed;
 import com.macross.service.opusService;
+import com.macross.service.singerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.ResultItems;
@@ -15,6 +16,8 @@ import java.util.List;
 public class singerPipeline implements Pipeline{
     @Autowired
     public opusService opusService;
+    @Autowired
+    public singerService singerService;
 
     @Override
     public void process(ResultItems resultItems, Task task) {
@@ -26,7 +29,7 @@ public class singerPipeline implements Pipeline{
                 singer singer = new singer();
                 singer.setImg1(img.get(i).substring(73));
                 singer.setName(name.get(i));
-                singer.toString();
+                singerService.addSinger(singer);
             }
         }else{
             String name = resultItems.get("name");
@@ -42,7 +45,10 @@ public class singerPipeline implements Pipeline{
             singer.setUrl(url);
             singer.setMax_level(max_level);
             singer.setOpus(opusService.getopus_img(opus_img).getId());
-            singer.toString();
+
+            init.setId(singerService.getSinger_name(name).getId());
+            max.setId(singerService.getSinger_name(name).getId());
+            singerService.addSingerDetailed(singer,init,max);
         }
     }
 }
