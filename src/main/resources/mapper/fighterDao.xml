@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macross.dao.fighterDao">
+    <select id="getFighter_url" resultType="fighter">
+        SELECT * FROM  fighter where url = #{url}
+    </select>
+    <insert id="addFighter" parameterType="fighter">
+        insert into fighter(name,url,img,driver,attack,hit,episode,opus)
+        VALUES (#{name},#{url},#{img},#{driver},#{attack},#{hit},#{episode},#{opus})
+    </insert>
+
+</mapper>

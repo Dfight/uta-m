@@ -9,11 +9,12 @@ public class fighter {
     private int attack;
     private int hit;
     private int episode;
+    private int opus;
 
     public fighter() {
     }
 
-    public fighter(int id, String name, String url, String img, String driver, int attack, int hit, int episode) {
+    public fighter(int id, String name, String url, String img, String driver, int attack, int hit, int episode, int opus) {
         this.id = id;
         this.name = name;
         this.url = url;
@@ -22,6 +23,15 @@ public class fighter {
         this.attack = attack;
         this.hit = hit;
         this.episode = episode;
+        this.opus = opus;
+    }
+
+    public int getOpus() {
+        return opus;
+    }
+
+    public void setOpus(int opus) {
+        this.opus = opus;
     }
 
     public int getId() {
@@ -99,6 +109,7 @@ public class fighter {
                 ", attack=" + attack +
                 ", hit=" + hit +
                 ", episode=" + episode +
+                ", opus=" + opus +
                 '}';
     }
 }
