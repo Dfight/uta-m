@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macross.dao.cardDao">
+    <select id="getCard_url" resultType="card">
+        SELECT * FROM card WHERE url = #{url}
+    </select>
+    <insert id="addCard" parameterType="card">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+        insert into card (name,url,star,episode,skill_C,skill_A,skill_L,opus,attr)
+        values (#{name},#{url},#{star},#{episode},#{skill_C},#{skill_A},#{skill_L},#{opus},#{attr});
+    </insert>
+    <insert id="addCard_Singer" parameterType="card_singer">
+        insert into card_singer (card,singer) values (#{card},#{singer});
+    </insert>
+    <insert id="addCard_detailed" parameterType="card_detailed">
+        insert into card_detailed (id,state,img,total,soul,voice,charm,life,support,fold_wave,luck)
+        values (#{id},#{state},#{img},#{total},#{soul},#{voice},#{charm},#{life},#{support},#{fold_wave},#{luck});
+    </insert>
+</mapper>

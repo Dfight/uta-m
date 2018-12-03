@@ -27,6 +27,7 @@ public class cardController {
         String name = request.getParameter("name");
         cardPipeline.setOpus(Integer.parseInt(id));
         String strUrl = "https://歌マクロス.gamematome.jp/game/977/wiki/プレート_"+name;
+        //String strUrl = "https://歌マクロス.gamematome.jp/game/977/wiki/プレート_空中の救出劇";
         Spider.create(cardProcessor).
                 addUrl(strUrl)
                 .addPipeline(cardPipeline)
