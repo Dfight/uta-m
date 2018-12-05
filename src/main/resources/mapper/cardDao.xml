@@ -20,4 +20,7 @@
         insert into card_detailed (id,state,img,total,soul,voice,charm,life,support,fold_wave,luck)
         values (#{id},#{state},#{img},#{total},#{soul},#{voice},#{charm},#{life},#{support},#{fold_wave},#{luck});
     </insert>
+    <select id="getCard_opus" resultType="card">
+        select * from card WHERE opus = #{opus};
+    </select>
 </mapper>

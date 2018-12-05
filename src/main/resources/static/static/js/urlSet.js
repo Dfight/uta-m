@@ -7,3 +7,4 @@ var autoloadSinger = path +"/singer/autoload";
 var autoloadClothing = path +"/clothing/autoload";
 var autoloadFighter = path +"/fighter/autoload";
 var autoloadCard = path +"/card/autoload";
+var getNumber = path +"/main/number";

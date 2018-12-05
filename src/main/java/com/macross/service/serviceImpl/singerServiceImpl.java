@@ -7,6 +7,8 @@ import com.macross.service.singerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("singerService")
 public class singerServiceImpl implements singerService {
     @Autowired
@@ -36,5 +38,10 @@ public class singerServiceImpl implements singerService {
         singerDao.addSingerDate(singer);
         singerDao.addSingerDetailed(init);
         singerDao.addSingerDetailed(max);
+    }
+
+    @Override
+    public List<singer> getAllSinger() {
+        return singerDao.getAllSinger();
     }
 }

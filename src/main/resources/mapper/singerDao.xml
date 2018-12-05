@@ -20,4 +20,7 @@
     <insert id="addSingerDetailed" parameterType="singer_detailed">
         insert into singer_detailed values (#{id},#{state},#{total},#{soul},#{voice},#{charm},#{life},#{support},#{fold_wave});
     </insert>
+    <select id="getAllSinger" resultType="singer">
+        select * from singer;
+    </select>
 </mapper>

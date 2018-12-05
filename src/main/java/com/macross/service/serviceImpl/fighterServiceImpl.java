@@ -6,6 +6,8 @@ import com.macross.service.fighterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("fighterService")
 public class fighterServiceImpl implements fighterService {
     @Autowired
@@ -18,5 +20,10 @@ public class fighterServiceImpl implements fighterService {
     @Override
     public int addFighter(fighter fighter) {
         return fighterDao.addFighter(fighter);
+    }
+
+    @Override
+    public List<fighter> getFighter_opus(int opus) {
+        return fighterDao.getFighter_opus(opus);
     }
 }

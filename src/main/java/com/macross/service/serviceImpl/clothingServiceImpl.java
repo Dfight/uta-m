@@ -6,6 +6,8 @@ import com.macross.service.clothingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("clothingService")
 public class clothingServiceImpl implements clothingService {
     @Autowired
@@ -18,5 +20,10 @@ public class clothingServiceImpl implements clothingService {
     @Override
     public int addClothing(clothing clothing) {
         return clothingDao.addClothing(clothing);
+    }
+
+    @Override
+    public List<clothing> getAllClothing() {
+        return clothingDao.getAllClothing();
     }
 }

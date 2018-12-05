@@ -4,6 +4,8 @@ import com.macross.entry.singer;
 import com.macross.entry.singer_detailed;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface singerDao {
     public singer exist_url(String url);
@@ -11,4 +13,5 @@ public interface singerDao {
     public int addSinger(singer singer);
     public int addSingerDate(singer singer);
     public int addSingerDetailed(singer_detailed singer_detailed);
+    public List<singer> getAllSinger();
 }

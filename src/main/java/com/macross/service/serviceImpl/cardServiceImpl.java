@@ -8,6 +8,8 @@ import com.macross.service.cardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("cardService")
 public class cardServiceImpl implements cardService {
     @Autowired
@@ -30,5 +32,10 @@ public class cardServiceImpl implements cardService {
     @Override
     public int addCard_detailed(card_detailed card_detailed) {
         return cardDao.addCard_detailed(card_detailed);
+    }
+
+    @Override
+    public List<card> getCard_opus(int opus) {
+        return cardDao.getCard_opus(opus);
     }
 }

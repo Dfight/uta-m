@@ -10,6 +10,9 @@
         insert INTO clothing(name,url,img,effect,singer,episode)
         VALUES (#{name},#{url},#{img},#{effect},#{singer},#{episode})
     </insert>
+    <select id="getAllClothing" resultType="clothing">
+        select * from clothing;
+    </select>
 
 
 </mapper>

@@ -9,4 +9,7 @@
     <select id="existEpisode" resultType="episode">
         select * from episode where url = #{url}
     </select>
+    <select id="getEpisode_opus" resultType="opus">
+        select * from episode WHERE opus = #{opus};
+    </select>
 </mapper>

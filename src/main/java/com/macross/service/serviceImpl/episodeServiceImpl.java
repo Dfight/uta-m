@@ -6,6 +6,8 @@ import com.macross.service.episodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("episodeService")
 public class episodeServiceImpl implements episodeService {
     @Autowired
@@ -28,5 +30,10 @@ public class episodeServiceImpl implements episodeService {
     @Override
     public episode getEpisode_url(String url) {
         return episodeDao.existEpisode(url);
+    }
+
+    @Override
+    public List<episode> getEpisode_opus(int opus) {
+        return episodeDao.getEpisode_opus(opus);
     }
 }
