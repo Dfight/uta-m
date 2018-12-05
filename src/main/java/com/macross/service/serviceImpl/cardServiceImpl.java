@@ -35,7 +35,7 @@ public class cardServiceImpl implements cardService {
     }
 
     @Override
-    public List<card> getCard_opus(int opus) {
-        return cardDao.getCard_opus(opus);
+    public List<card> getAllCard() {
+        return cardDao.getAllCard();
     }
 }

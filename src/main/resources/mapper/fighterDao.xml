@@ -10,7 +10,7 @@
         insert into fighter(name,url,img,driver,attack,hit,episode,opus)
         VALUES (#{name},#{url},#{img},#{driver},#{attack},#{hit},#{episode},#{opus})
     </insert>
-    <select id="getFighter_opus" resultType="fighter">
-        select * from fighter WHERE opus = #{opus};
+    <select id="getAllFighter" resultType="fighter">
+        select * from fighter;
     </select>
 </mapper>

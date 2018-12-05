@@ -33,7 +33,7 @@ public class episodeServiceImpl implements episodeService {
     }
 
     @Override
-    public List<episode> getEpisode_opus(int opus) {
-        return episodeDao.getEpisode_opus(opus);
+    public List<episode> getAllEpisode( ) {
+        return episodeDao.getAllEpisode();
     }
 }

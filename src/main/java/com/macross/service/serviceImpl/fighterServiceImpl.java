@@ -23,7 +23,7 @@ public class fighterServiceImpl implements fighterService {
     }
 
     @Override
-    public List<fighter> getFighter_opus(int opus) {
-        return fighterDao.getFighter_opus(opus);
+    public List<fighter> getAllFighter() {
+        return fighterDao.getAllFighter();
     }
 }

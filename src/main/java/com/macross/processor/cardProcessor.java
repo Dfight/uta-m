@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
+import us.codecraft.webmagic.selector.PlainText;
 import us.codecraft.webmagic.selector.Selectable;
 
 import java.util.List;
@@ -56,7 +57,10 @@ public class cardProcessor implements PageProcessor {
             card.setName(name);
             card.setUrl(page.getUrl().toString());
             card.setStar(page.getHtml().xpath("//table[@id='content_block_2']/tbody/tr[2]/td[1]/div/text()").toString().length());
-            card.setEpisode(episodeService.getEpisode_url(page.getHtml().xpath("//table[@id='content_block_6']/tbody/tr[2]/td[2]").links().toString()).getId());
+            String s = page.getHtml().xpath("//table[@id='content_block_6']/tbody/tr[2]/td[2]/a").toString();
+            if (s!=null){
+                card.setEpisode(episodeService.getEpisode_url(page.getHtml().xpath("//table[@id='content_block_6']/tbody/tr[2]/td[2]").links().toString()).getId());
+            }
             card.setAttr(attrService.getAttr_name(page.getHtml().xpath("//table[@id='content_block_6']/tbody/tr[1]/td[2]/text()").toString()).getId());
 
             init.setState(0);

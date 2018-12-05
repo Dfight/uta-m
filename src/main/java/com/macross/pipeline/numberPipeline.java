@@ -10,9 +10,9 @@ import java.util.Map;
 
 @Component("numberPipeline")
 public class numberPipeline implements Pipeline{
-    private Map<String,Integer> episode= new HashMap<String,Integer>();
-    private Map<String,Integer> fighter= new HashMap<String,Integer>();
-    private Map<String,Integer> card= new HashMap<String,Integer>();
+    private int episode;
+    private int fighter;
+    private int card;
     private int clothing;
     private int singer;
 
@@ -20,23 +20,15 @@ public class numberPipeline implements Pipeline{
     @Override
     public void process(ResultItems resultItems, Task task) {
         String type = resultItems.get("type");
-        String name;
-        int number;
         switch (type){
             case "episode":
-                name = resultItems.get("name");
-                number = resultItems.get("number");
-                episode.put(name,number);
+                episode = resultItems.get("number");
                 break;
             case "fighter":
-                name = resultItems.get("name");
-                number = resultItems.get("number");
-                fighter.put(name,number);
+                fighter = resultItems.get("number");
                 break;
             case "card":
-                name = resultItems.get("name");
-                number = resultItems.get("number");
-                card.put(name,number);
+                card = resultItems.get("number");
                 break;
             case "clothing":
                 clothing = resultItems.get("number");
@@ -48,30 +40,28 @@ public class numberPipeline implements Pipeline{
     }
 
 
-
-
-    public Map<String, Integer> getFighter() {
-        return fighter;
-    }
-
-    public void setFighter(Map<String, Integer> fighter) {
-        this.fighter = fighter;
-    }
-
-    public Map<String, Integer> getCard() {
-        return card;
-    }
-
-    public void setCard(Map<String, Integer> card) {
-        this.card = card;
-    }
-
-    public Map<String, Integer> getEpisode() {
+    public int getEpisode() {
         return episode;
     }
 
-    public void setEpisode(Map<String, Integer> episode) {
+    public void setEpisode(int episode) {
         this.episode = episode;
+    }
+
+    public int getFighter() {
+        return fighter;
+    }
+
+    public void setFighter(int fighter) {
+        this.fighter = fighter;
+    }
+
+    public int getCard() {
+        return card;
+    }
+
+    public void setCard(int card) {
+        this.card = card;
     }
 
     public int getClothing() {

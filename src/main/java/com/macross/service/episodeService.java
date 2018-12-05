@@ -8,5 +8,5 @@ public interface episodeService {
     public int addEpisode(episode episode);
     public boolean existEpisode(String url);
     public episode getEpisode_url(String url);
-    public List<episode> getEpisode_opus(int opus);
+    public List<episode> getAllEpisode();
 }

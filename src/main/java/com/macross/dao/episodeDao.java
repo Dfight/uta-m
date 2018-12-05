@@ -9,5 +9,5 @@ import java.util.List;
 public interface episodeDao {
     public int addEpisode(episode episode);
     public episode existEpisode(String url);
-    public List<episode> getEpisode_opus(int opus);
+    public List<episode> getAllEpisode();
 }

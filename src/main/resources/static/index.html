@@ -12,6 +12,9 @@
         button{
             width: 300px;
         }
+        .badge{
+            float: right;
+        }
     </style>
 </head>
 <body>
@@ -31,15 +34,18 @@
     <div style="height: 100px">
         <div class="col-md-4 col-md-offset-8">
             <button class="btn btn-lg btn-primary" onclick="autoloadsinger()">
-                <span class="badge" id="singerBadge"></span>
                 autoLoad singer
+                <span class="badge" id="singerBadge"></span>
             </button>
         </div>
     </div>
     <hr>
     <div style="height: 100px">
         <div class="col-md-4 col-md-offset-8">
-            <button class="btn btn-lg btn-primary" onclick="autoloadclothing()">autoLoad clothing</button>
+            <button class="btn btn-lg btn-primary" onclick="autoloadclothing()">
+                autoLoad clothing
+                <span class="badge" id="clothingBadge"></span>
+            </button>
         </div>
     </div>
     <hr>
@@ -64,9 +70,9 @@
         async:false,
         success: function (data) {
             allOpus = data.opus;
-            var strEpisode = "<button class='btn btn-lg btn-primary col-md-10' onclick='autoloadepisode()'>autoLoad episode</button>";
-            var strfighter = "<button class='btn btn-lg btn-primary col-md-10' onclick='autoloadfighter()'>autoLoad fighter</button>";
-            var strcard = "<button class='btn btn-lg btn-primary col-md-10' onclick='autoloadcard()'>autoLoad card</button>";
+            var strEpisode = "<button class='btn btn-lg btn-primary col-md-10' onclick='autoloadepisode()'>autoLoad episode<span class='badge' id='episodeBadge'></span></button>";
+            var strfighter = "<button class='btn btn-lg btn-primary col-md-10' onclick='autoloadfighter()'>autoLoad fighter<span class='badge' id='fighterBadge'></span></button>";
+            var strcard = "<button class='btn btn-lg btn-primary col-md-10' onclick='autoloadcard()'>autoLoad card<span class='badge' id='cardBadge'></span></button>";
             for(i=0;i<allOpus.length;i++){
                 strEpisode+="<button class='btn btn-lg btn-info col-md-10' onclick=\"loadEpisode("+allOpus[i].id+",'"+allOpus[i].name+"')\">load episode "+allOpus[i].name+"</button>";
                 strfighter+="<button class='btn btn-lg btn-info col-md-10' onclick=\"loadFighter("+allOpus[i].id+",'"+allOpus[i].name+"')\">load fighter "+allOpus[i].name+"</button>";
@@ -85,6 +91,10 @@
             async:false,
             success: function (data) {
                 $("#singerBadge").text(data.singer);
+                $("#clothingBadge").text(data.clothing);
+                $("#episodeBadge").text(data.episode);
+                $("#fighterBadge").text(data.fighter);
+                $("#cardBadge").text(data.card);
             }
         });
     }

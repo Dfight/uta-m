@@ -13,5 +13,5 @@ public interface cardDao {
     public int addCard(card card);
     public int addCard_Singer(card_singer card_singer);
     public int addCard_detailed(card_detailed card_detailed);
-    public List<card> getCard_opus(int opus);
+    public List<card> getAllCard();
 }
