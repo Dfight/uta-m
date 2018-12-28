@@ -6,6 +6,7 @@ import com.macross.service.episodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("episodeService")
@@ -35,5 +36,10 @@ public class episodeServiceImpl implements episodeService {
     @Override
     public List<episode> getAllEpisode( ) {
         return episodeDao.getAllEpisode();
+    }
+
+    @Override
+    public List<HashMap<String, Object>> getAllEpisode_opus() {
+        return episodeDao.getAllEpisode_opus();
     }
 }

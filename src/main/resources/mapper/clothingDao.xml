@@ -13,6 +13,10 @@
     <select id="getAllClothing" resultType="clothing">
         select * from clothing;
     </select>
+    <select id="getClothing_singer" resultType="java.util.HashMap">
+
+select clothing.*,episode.img episodeIMG from clothing LEFT JOIN episode on clothing.episode = episode.id WHERE singer = #{id};
+    </select>
 
 
 </mapper>

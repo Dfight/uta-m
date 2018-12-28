@@ -6,6 +6,8 @@ import com.macross.service.skillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("skillService")
 public class skillServiceImpl implements skillService {
     @Autowired
@@ -19,5 +21,25 @@ public class skillServiceImpl implements skillService {
         }else{
             return ex_skill.getId();
         }
+    }
+
+    @Override
+    public skill getSkill_id(int id) {
+        return skillDao.getSkill_id(id);
+    }
+
+    @Override
+    public List<skill> getAllSkill() {
+        return skillDao.getAllSkill();
+    }
+
+    @Override
+    public int translate(skill skill) {
+        return skillDao.translate(skill);
+    }
+
+    @Override
+    public List<String> getSkillType_Pos(String pos) {
+        return skillDao.getSkillType_Pos(pos);
     }
 }

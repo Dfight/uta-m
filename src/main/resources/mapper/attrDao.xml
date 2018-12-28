@@ -6,6 +6,8 @@
     <select id="getAttr_name" resultType="attr">
         SELECT * from attr where name = #{name}
     </select>
-
+    <select id="getAllAttr" resultType="attr">
+        select * from attr;
+    </select>
 
 </mapper>

@@ -12,4 +12,7 @@
     <select id="getAllEpisode" resultType="opus">
         select * from episode;
     </select>
+    <select id="getAllEpisode_opus" resultType="java.util.HashMap">
+        SELECT episode.*,opus.img opusIMG from episode,opus where episode.opus = opus.id;
+    </select>
 </mapper>

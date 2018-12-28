@@ -6,6 +6,7 @@ import com.macross.service.fighterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("fighterService")
@@ -25,5 +26,10 @@ public class fighterServiceImpl implements fighterService {
     @Override
     public List<fighter> getAllFighter() {
         return fighterDao.getAllFighter();
+    }
+
+    @Override
+    public List<HashMap<String, Object>> getAllFighter_opus(int opus) {
+        return fighterDao.getAllFighter_opus(opus);
     }
 }

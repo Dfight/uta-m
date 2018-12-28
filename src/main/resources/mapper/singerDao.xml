@@ -20,7 +20,22 @@
     <insert id="addSingerDetailed" parameterType="singer_detailed">
         insert into singer_detailed values (#{id},#{state},#{total},#{soul},#{voice},#{charm},#{life},#{support},#{fold_wave});
     </insert>
-    <select id="getAllSinger" resultType="singer">
-        select * from singer;
+    <select id="getAllSinger" resultType="java.util.HashMap">
+        select singer.*,opus.name opusName,opus.img opusIMG from singer,opus WHERE singer.opus = opus.id;
+    </select>
+    <select id="getSingerClothingNumber" resultType="int">
+        SELECT COUNT(*) from clothing where singer = #{id}
+    </select>
+    <select id="getSingerCardNumber" resultType="int">
+        SELECT COUNT(*) from card_singer where singer = #{id}
+    </select>
+    <select id="getSinger" resultType="java.util.HashMap">
+        select singer.*,opus.name opusName,opus.img opusIMG from singer,opus WHERE singer.id = #{id} AND singer.opus = opus.id;
+    </select>
+    <select id="getSingerInit" resultType="singer_detailed">
+        select * from singer_detailed WHERE id = #{id} AND state =0;
+    </select>
+    <select id="getSingerMax" resultType="singer_detailed">
+        select * from singer_detailed WHERE id = #{id} AND state =1;
     </select>
 </mapper>

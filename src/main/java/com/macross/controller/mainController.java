@@ -14,10 +14,7 @@ import us.codecraft.webmagic.Spider;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 @RequestMapping("/main")
@@ -89,6 +86,14 @@ public class mainController {
         jsonObject.put("card",card);
         jsonObject.put("clothing",clothing);
         jsonObject.put("singer",singer);
+        return jsonObject.toJSONString();
+    }
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test(){
+        JSONObject jsonObject = new JSONObject();
+        Date date = new Date();
+        jsonObject.put("date",date);
         return jsonObject.toJSONString();
     }
 }

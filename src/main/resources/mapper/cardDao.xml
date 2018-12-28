@@ -23,4 +23,68 @@
     <select id="getAllCard" resultType="card">
         select * from card ;
     </select>
+    <select id="getCard_id" resultType="java.util.HashMap">
+        SELECT c.*,e.img eimg,e.name ename,e.text etext,o.img oimg,o.name oname,a.img aimg,a.name aname
+        from card c,episode e,opus o,attr a
+        WHERE c.episode = e.id
+        and c.opus = o.id
+        and c.attr = a.id
+        and c.id = #{id}
+    </select>
+    <select id="getCardInit" resultType="card_detailed">
+        select * from card_detailed where id = #{id} AND  state = 0;
+    </select>
+    <select id="getCardMax" resultType="card_detailed">
+        select * from card_detailed where id = #{id} AND  state = 1;
+    </select>
+    <select id="getCardSinger" resultType="singer">
+        SELECT s.*
+        from card_singer c,singer s
+        WHERE c.singer = s.id
+        and c.card = #{id}
+    </select>
+    <select id="getCardList" resultType="java.util.HashMap">
+        SELECT DISTINCT card.*,init.total init,max.total max ,init.img initimg,max.img maximg
+        FROM card,card_detailed init,card_detailed max,card_singer cs
+        WHERE card.id = init.id
+        AND card.id = max.id
+        AND card.id = cs.card
+        AND max.state =1
+        AND init.state=0
+        <if test="star.length!=0">
+            AND card.star in
+            <foreach collection="star" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="opus.length!=0">
+            AND card.opus in
+            <foreach collection="opus" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="attr.length!=0">
+            AND card.attr in
+            <foreach collection="attr" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="singer.length!=0">
+            AND cs.singer in
+            <foreach collection="singer" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="center!=''">
+            AND skill_C in (SELECT id from skill where type = #{center} AND pos = 'center')
+        </if>
+        <if test="action!=''">
+            AND skill_A in (SELECT id from skill where type = #{action} AND pos = 'action')
+        </if>
+        <if test="live!=''">
+            AND skill_L in (SELECT id from skill where type = #{live} AND pos = 'live')
+        </if>
+        ORDER BY max.total DESC
+        Limit #{start},10
+    </select>
 </mapper>

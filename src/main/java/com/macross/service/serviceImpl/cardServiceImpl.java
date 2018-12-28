@@ -4,10 +4,12 @@ import com.macross.dao.cardDao;
 import com.macross.entry.card;
 import com.macross.entry.card_detailed;
 import com.macross.entry.card_singer;
+import com.macross.entry.singer;
 import com.macross.service.cardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("cardService")
@@ -37,5 +39,29 @@ public class cardServiceImpl implements cardService {
     @Override
     public List<card> getAllCard() {
         return cardDao.getAllCard();
+    }
+
+    @Override
+    public HashMap<String, Object> getCard_id(int id) {
+        return cardDao.getCard_id(id);
+    }
+
+    @Override
+    public card_detailed getCardDetailed(int id,int state) {
+        if (state==0){
+            return cardDao.getCardInit(id);
+        }else{
+            return cardDao.getCardMax(id);
+        }
+    }
+
+    @Override
+    public List<singer> getCardSinger(int id) {
+        return cardDao.getCardSinger(id);
+    }
+
+    @Override
+    public List<HashMap<String, Object>> getCardList(Integer[] star, Integer[] opus, Integer[] attr, Integer[] singer, Integer start, String center,String action,String live) {
+        return cardDao.getCardList(star,opus,attr,singer,start,center,action,live);
     }
 }

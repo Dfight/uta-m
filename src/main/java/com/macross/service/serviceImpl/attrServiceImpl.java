@@ -6,6 +6,8 @@ import com.macross.service.attrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("attrService")
 public class attrServiceImpl implements attrService {
     @Autowired
@@ -13,5 +15,10 @@ public class attrServiceImpl implements attrService {
     @Override
     public attr getAttr_name(String name) {
         return attrDao.getAttr_name(name);
+    }
+
+    @Override
+    public List<attr> getAllAttr() {
+        return attrDao.getAllAttr();
     }
 }

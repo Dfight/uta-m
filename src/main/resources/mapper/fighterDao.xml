@@ -13,4 +13,13 @@
     <select id="getAllFighter" resultType="fighter">
         select * from fighter;
     </select>
+    <select id="getAllFighter_opus" resultType="java.util.HashMap" >
+        SELECT fighter.*,opus.img opusIMG,opus.name opusName,episode.name episodeName,episode.img episodeIMG
+        FROM fighter,opus,episode
+        WHERE fighter.opus = opus.id
+        AND episode.id = fighter.episode
+        <if test="_parameter!=0">
+            AND fighter.opus =#{_parameter}
+        </if>
+    </select>
 </mapper>

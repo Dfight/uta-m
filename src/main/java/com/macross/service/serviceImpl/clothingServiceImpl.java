@@ -6,6 +6,7 @@ import com.macross.service.clothingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("clothingService")
@@ -25,5 +26,10 @@ public class clothingServiceImpl implements clothingService {
     @Override
     public List<clothing> getAllClothing() {
         return clothingDao.getAllClothing();
+    }
+
+    @Override
+    public List<HashMap<String,Object>> getClothing_singer(int id) {
+        return clothingDao.getClothing_singer(id);
     }
 }

@@ -7,6 +7,7 @@ import com.macross.service.singerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("singerService")
@@ -41,7 +42,28 @@ public class singerServiceImpl implements singerService {
     }
 
     @Override
-    public List<singer> getAllSinger() {
+    public List<HashMap<String,Object>> getAllSinger() {
         return singerDao.getAllSinger();
+    }
+    public int getSingerClothingNumber(int id){
+        return singerDao.getSingerClothingNumber(id);
+    }
+    public int getSingerCardNumber(int id){
+        return singerDao.getSingerCardNumber(id);
+    }
+
+    @Override
+    public HashMap<String,Object> getSinger(int id) {
+        return singerDao.getSinger(id);
+    }
+
+    @Override
+    public singer_detailed getSingerInit(int id) {
+        return singerDao.getSingerInit(id);
+    }
+
+    @Override
+    public singer_detailed getSingerMax(int id) {
+        return singerDao.getSingerMax(id);
     }
 }
